@@ -1,5 +1,7 @@
 node_modules
 typings
+typings.json
+tsconfig.json
+*.js.map
+npm-debug*.
 .DS_Store
-*.DS_Store
-*/.DS_Store
