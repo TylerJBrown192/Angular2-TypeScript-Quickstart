@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Angular 2 QuickStart</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">    
+	<link rel="stylesheet" href="styles.css">
+
+	<!-- 1. Load libraries -->
+	<!-- IE required polyfills, in this exact order -->
+	<script src="node_modules/es6-shim/es6-shim.min.js"></script>
+	<script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+	<script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>   
+
+	<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+	<script src="node_modules/systemjs/dist/system.src.js"></script>
+	<script src="node_modules/rxjs/bundles/Rx.js"></script>
+	<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+	<!-- 2. Configure SystemJS, a universal dynamic module loader (alternative to webpack) -->
+	<script>
+		System.config({
+			packages: { // Tells SystemJS what to do when it sees a request for a module from app/.
+				app: { // This app makes such requests when one of the TS files runs an import statement (like in main.ts)
+					format: 'register',
+					defaultExtension: 'js' // Will get module app.component after it is transpiled from TS to JS
+				}
+			}
+		});
+		System.import('app/main') // Imports main file post transpiling, which is where we tell Angular to initially launch the application. Other import requests handled by Angular
+		.then(null, console.error.bind(console));
+	</script>
+</head>
+
+<!-- 3. Display the application -->
+<body>
+	<my-app>Loading...</my-app> <!-- When Angular calls the bootstrap function in main.ts, it reads the AppComponent metadata, finds the my-app selector, locates an element tag named my-app, and loads the application between those tags -->
+</body>
+</html>
